@@ -16,6 +16,9 @@ import java.util.ArrayList;
 
 public class ContractGenerator {
     private final HelloSignClient client;
+    private final float pixel_per_cm = 28.33f;
+    private final float margin = 1f;
+    private final float page_height = 612f;
 
     public ContractGenerator(final String apiKey) {
         client = new HelloSignClient(apiKey);
@@ -47,32 +50,39 @@ public class ContractGenerator {
 
         final ArrayList<FormField> formFields = new ArrayList<>();
         final int page = 1;
-        final int OFFSET_X = 24; // For some reason HelloSign is not using correct X position.
+        final int OFFSET_X = 0;
         final FormField firstSignerName = new FormField(FieldType.TEXT, "Print Name",
-                0, firstSignerBox.getX() + OFFSET_X, firstSignerBox.getY(), 20, 200, page);
+                0, firstSignerBox.getX() + OFFSET_X, getYWithOffsetForMargins(firstSignerBox), 20, 200, page);
         firstSignerName.setIsRequired(true);
         formFields.add(firstSignerName);
 
         final FormField firstSign = new FormField(FieldType.SIGNATURE, "Signature",
                 0, firstSignerBox.getX() + OFFSET_X + firstSignerName.getWidth(),
-                firstSignerBox.getY(), 20, 200, page);
+                getYWithOffsetForMargins(firstSignerBox), 20, 200, page);
 
         firstSign.setIsRequired(true);
         formFields.add(firstSign);
 
         final FormField secondSignerName = new FormField(FieldType.TEXT, "Print Name",
-                1, secondSignerBox.getX() + OFFSET_X, secondSignerBox.getY(), 20, 200, page);
+                1, secondSignerBox.getX() + OFFSET_X, getYWithOffsetForMargins(secondSignerBox), 20, 200, page);
         secondSignerName.setIsRequired(true);
         formFields.add(secondSignerName);
 
         final FormField secondSign = new FormField(FieldType.SIGNATURE, "Signature",
                 1, secondSignerBox.getX() + OFFSET_X + secondSignerName.getWidth(),
-                secondSignerBox.getY(), 20, 200, page);
+                getYWithOffsetForMargins(secondSignerBox), 20, 200, page);
         secondSign.setIsRequired(true);
         formFields.add(secondSign);
 
         document.setFormFields(formFields);
         return document;
+    }
+
+    private int getYWithOffsetForMargins(final BoxDimensions firstSignerBox) {
+        final int OFFSET_Y = (int) (margin * pixel_per_cm);
+        final int no_of_pages = (int) (firstSignerBox.getY() / page_height) + 1;
+        return no_of_pages < 2 ? firstSignerBox.getY() - OFFSET_Y
+                : firstSignerBox.getY() - (int) ((OFFSET_Y+8.33) * 3 * no_of_pages);
     }
 
     private File createTempFile(final ContractData contractData, final byte[] data) {
