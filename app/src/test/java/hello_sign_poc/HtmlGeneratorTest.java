@@ -10,14 +10,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HtmlGeneratorTest {
     public static String TEST_HTML = "<html>\n" +
             "<head>\n" +
-            "    <meta name=\"viewport\" content=\"width=1980, initial-scale=1\"/>\n" +
-            "    <title>Welcome!</title>\n" +
+            "    <title>Digital Contract</title>\n" +
             "</head>\n" +
+            "<style>\n" +
+            "    @page { size: letter landscape; margin: 1cm;}\n" +
+            "    body { font-family: sans-serif; }\n" +
+            "    .terms { height: 1000px; }\n" +
+            "     #sign-1, #sign-2 {\n" +
+            "        margin-bottom: 12px;\n" +
+            "      }\n" +
+            "</style>\n" +
             "<body>\n" +
             "<h1>This is a test Contract</h1>\n" +
-            "<p>Terms and Conditions:\n" +
+            "<div class=\"terms\">Terms and Conditions:\n" +
             "    Read carefully!\n" +
-            "</p>\n" +
+            "</div>\n" +
             "\n" +
             "<p>\n" +
             "<div id=\"first-signer\">\n" +
