@@ -2,9 +2,9 @@
 
 To test the ContractGenerator following example can be used.
 
-Replace `HELLOSIGN_API_KEY` with your api key and `TEST_HTML` with any html having elements with id `sign-1` and `sign-2`.
+> Replace `HELLOSIGN_API_KEY` with your api key and `TEST_HTML` with any html having elements with id `sign-1` and `sign-2`.
 
-You can also refer to test HTML example in `app/src/test/java/hello_sign_poc/HtmlGeneratorTest.java`
+>You can also refer to test HTML example in `app/src/test/java/hello_sign_poc/HtmlGeneratorTest.java`
 
 
 ```java
