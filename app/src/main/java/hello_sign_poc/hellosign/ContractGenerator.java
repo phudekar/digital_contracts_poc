@@ -26,6 +26,8 @@ public class ContractGenerator {
         SignatureRequest request = new SignatureRequest();
         request.setSubject(contractData.getContractName());
         request.setMessage("Hi, please approve this media.");
+        //can add cc to the email
+        //request.addCC("somevalidemail.gmail.com");
         request.setTestMode(true);
         try {
             request.addSigner(contractData.getFirstContact().getEmail(), contractData.getFirstContact().getName());

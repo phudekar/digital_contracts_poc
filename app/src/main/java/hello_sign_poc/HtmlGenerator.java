@@ -4,11 +4,11 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
+import hello_sign_poc.dto.DataModel;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.HashMap;
@@ -33,14 +33,25 @@ public class HtmlGenerator {
         }
     }
 
-    private void configure() {
-// Create your Configuration instance, and specify if up to what FreeMarker
-// version (here 2.3.29) do you want to apply the fixes that are not 100%
-// backward-compatible. See the Configuration JavaDoc for details.
-        cfg = new Configuration(Configuration.VERSION_2_3_29);
+    public String generateHtml(final String template, final DataModel model) {
+        return generateHtml(template, new HashMap<String, Object>() {{
+            put("lineItems", model.getLineItems());
+        }});
+    }
 
+    private void configure() {
+        // Create your Configuration instance, and specify if up to what FreeMarker
+        // version (here 2.3.29) do you want to apply the fixes that are not 100%
+        // backward-compatible. See the Configuration JavaDoc for details.
         try {
+            cfg = new Configuration(Configuration.VERSION_2_3_29);
             cfg.setDirectoryForTemplateLoading(new File(HtmlGenerator.class.getClassLoader().getResource("templates").getFile()));
+            cfg.setDefaultEncoding("UTF-8");
+            cfg.setTemplateExceptionHandler(TemplateExceptionHandler.RETHROW_HANDLER);
+            cfg.setLogTemplateExceptions(false);
+            cfg.setWrapUncheckedExceptions(true);
+            cfg.setFallbackOnNullLoopVariable(false);
+
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

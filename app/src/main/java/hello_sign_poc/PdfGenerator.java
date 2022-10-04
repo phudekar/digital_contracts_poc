@@ -9,10 +9,7 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 import org.xhtmlrenderer.render.Box;
 import org.xhtmlrenderer.render.InlineLayoutBox;
 
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -31,7 +28,7 @@ public class PdfGenerator {
 
     }
 
-    public byte[] generatePDF(final String htmlString, final String outputFileName) {
+    public byte[] generatePDF(final String htmlString) {
         final Document document = getXHtmlDocument(htmlString);
         final ByteArrayOutputStream out = new ByteArrayOutputStream();
         try (OutputStream outputStream = new BufferedOutputStream(out)) {
@@ -42,6 +39,17 @@ public class PdfGenerator {
             throw new RuntimeException(e);
         }
         return out.toByteArray();
+    }
+
+    public void writePDF(final String htmlString) {
+        try {
+            final byte[] data = generatePDF(htmlString);
+            OutputStream out = new FileOutputStream("out.pdf");
+            out.write(data);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private Document getXHtmlDocument(final String htmlString) {

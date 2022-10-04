@@ -18,7 +18,7 @@ public class PdfGeneratorTest {
 
         final PdfGenerator pdfGenerator = new PdfGenerator();
 
-        final byte[] result = pdfGenerator.generatePDF(TEST_HTML, "test.pdf");
+        final byte[] result = pdfGenerator.generatePDF(TEST_HTML);
 
         createTestFile(result);
 
