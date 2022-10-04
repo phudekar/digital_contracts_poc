@@ -6,9 +6,13 @@
     @page { size: letter landscape; margin: 1cm;}
     body { font-family: sans-serif; }
     .terms { height: 1000px; }
-     #sign-1, #sign-2 {
+    .signer {
+        margin-bottom: 40px;
+    }
+       .sign {
+        height:40px;
+        margin-top: 24px;
         margin-bottom: 12px;
-        display: inline-block;
         width: 400px;
         border-bottom: solid 1px black;
       }
@@ -20,18 +24,18 @@
 </div>
 
 <p>
-<div id="first-signer">
-    <div>
-        <span>First Signer:</span>
-        <span id="sign-1"></span>
-    </div>
+<div class="signer">
+    <div>Signer 1: [text|req|signer1|Label|UniqueId|letters_only|name]</div>
+    <div>Email: [text|noreq|signer1|Label|UniqueId|email_address|email]</div>
+    <div class="sign">Sign: [sig|req|signer1]</div>
+    <div>Signed On: [date|req|signer1]</div>
 </div>
 
-<div id="second-signer">
-    <div>
-        <span>Second Signer:</span>
-        <span id="sign-2"></span>
-    </div>
+<div class="signer">
+    <div>Signer 2: [text|req|signer2|Label|UniqueId|letters_only|name]</div>
+    <div>Email: [text|noreq|signer2|Label|UniqueId|email_address|email]</div>
+    <div class="sign">Sign: [sig|req|signer2]</div>
+    <div>Signed On: [date|req|signer2]</div>
 </div>
 </p>
 

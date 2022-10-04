@@ -17,39 +17,61 @@ import java.util.ArrayList;
 public class ContractGenerator {
     private final HelloSignClient client;
     private final float pixel_per_cm = 28.33f;
-    private final float margin = 1f;
+    private final float margin_in_cm = 2f;
     private final float page_height = 612f;
 
     public ContractGenerator(final String apiKey) {
         client = new HelloSignClient(apiKey);
     }
 
-    public SignatureRequest sendNewSignatureRequest(final ContractData contractData, final byte[] data,
-                                                    final BoxDimensions firstSingerBox, final BoxDimensions secondSignerBox) {
-        SignatureRequest request = new SignatureRequest();
-        request.setSubject(contractData.getContractName());
-        request.setMessage("Hi, please approve this media.");
-        request.setTestMode(true);
-        try {
-            request.addSigner(contractData.getFirstContact().getEmail(), contractData.getFirstContact().getName());
-            request.addSigner(contractData.getSecondContact().getEmail(), contractData.getSecondContact().getName());
-            request.addDocument(this.generateDocument(contractData, data, firstSingerBox, secondSignerBox));
+    public SignatureRequest sendNewSignatureRequest(final ContractData contractData, final byte[] data) {
 
+        try {
+            SignatureRequest request = getSignatureRequest(contractData);
+            request.addDocument(this.generateDocument(contractData, data));
             return client.sendSignatureRequest(request);
         } catch (HelloSignException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private Document generateDocument(final ContractData contractData, final byte[] data,
-                                      final BoxDimensions firstSignerBox, final BoxDimensions secondSignerBox) throws HelloSignException {
+    private Document generateDocument(final ContractData contractData, final byte[] data) {
         final Document document = new Document();
         File file = createTempFile(contractData, data);
         document.setName(contractData.getContractName());
         document.setFile(file);
+        return document;
+    }
 
+    private SignatureRequest getSignatureRequest(final ContractData contractData) throws HelloSignException {
+        SignatureRequest request = new SignatureRequest();
+        request.setSubject(contractData.getContractName());
+        request.setMessage("Hi, please approve this media.");
+        request.setTestMode(true);
+        request.setUseTextTags(true);
+        request.setHideTextTags(true);
+        request.addSigner(contractData.getFirstContact().getEmail(), contractData.getFirstContact().getName());
+        request.addSigner(contractData.getSecondContact().getEmail(), contractData.getSecondContact().getName());
+        return request;
+    }
+
+    public SignatureRequest sendNewSignatureRequest(final ContractData contractData, final byte[] data,
+                                                    final BoxDimensions firstSingerBox, final BoxDimensions secondSignerBox) {
+
+        try {
+            SignatureRequest request = getSignatureRequest(contractData);
+            request.addDocument(this.generateDocumentWithFormFields(contractData, data, firstSingerBox, secondSignerBox));
+            return client.sendSignatureRequest(request);
+        } catch (HelloSignException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private Document generateDocumentWithFormFields(final ContractData contractData, final byte[] data,
+                                                    final BoxDimensions firstSignerBox, final BoxDimensions secondSignerBox) throws HelloSignException {
+       Document document = this.generateDocument(contractData,data);
         final ArrayList<FormField> formFields = new ArrayList<>();
-        final int page = 1;
+        final int page = (int) (firstSignerBox.getY() / (page_height ) + 1);
         final int OFFSET_X = 0;
         final FormField firstSignerName = new FormField(FieldType.TEXT, "Print Name",
                 0, firstSignerBox.getX() + OFFSET_X, getYWithOffsetForMargins(firstSignerBox), 20, 200, page);
@@ -79,10 +101,7 @@ public class ContractGenerator {
     }
 
     private int getYWithOffsetForMargins(final BoxDimensions firstSignerBox) {
-        final int OFFSET_Y = (int) (margin * pixel_per_cm);
-        final int no_of_pages = (int) (firstSignerBox.getY() / page_height) + 1;
-        return no_of_pages < 2 ? firstSignerBox.getY() - OFFSET_Y
-                : firstSignerBox.getY() - (int) ((OFFSET_Y+8.33) * 3 * no_of_pages);
+        return (int) (firstSignerBox.getY() % page_height);
     }
 
     private File createTempFile(final ContractData contractData, final byte[] data) {
