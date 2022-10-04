@@ -10,28 +10,42 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class HtmlGeneratorTest {
     public static String TEST_HTML = "<html>\n" +
             "<head>\n" +
-            "    <meta name=\"viewport\" content=\"width=1980, initial-scale=1\"/>\n" +
-            "    <title>Welcome!</title>\n" +
+            "    <title>Digital Contract</title>\n" +
             "</head>\n" +
+            "<style>\n" +
+            "    @page { size: letter landscape; margin: 1cm;}\n" +
+            "    body { font-family: sans-serif; }\n" +
+            "    .terms { height: 1000px; }\n" +
+            "    .signer {\n" +
+            "        margin-bottom: 40px;\n" +
+            "    }\n" +
+            "    .sign {\n" +
+            "        height:40px;\n" +
+            "        margin-top: 24px;\n" +
+            "        margin-bottom: 12px;\n" +
+            "        width: 400px;\n" +
+            "        border-bottom: solid 1px black;\n" +
+            "      }" +
+            "</style>\n" +
             "<body>\n" +
             "<h1>This is a test Contract</h1>\n" +
-            "<p>Terms and Conditions:\n" +
+            "<div class=\"terms\">Terms and Conditions:\n" +
             "    Read carefully!\n" +
-            "</p>\n" +
-            "\n" +
-            "<p>\n" +
-            "<div id=\"first-signer\">\n" +
-            "    <div>\n" +
-            "        <span>First Signer:</span>\n" +
-            "        <span id=\"sign-1\"></span>\n" +
-            "    </div>\n" +
             "</div>\n" +
             "\n" +
-            "<div id=\"second-signer\">\n" +
-            "    <div>\n" +
-            "        <span>Second Signer:</span>\n" +
-            "        <span id=\"sign-2\"></span>\n" +
-            "    </div>\n" +
+            "<p>\n" +
+            "<div class=\"signer\">\n" +
+            "    <div>Signer 1: [text|req|signer1|Label|UniqueId|letters_only|name]</div>\n" +
+            "    <div>Email: [text|noreq|signer1|Label|UniqueId|email_address|email]</div>\n" +
+            "    <div class=\"sign\">Sign: [sig|req|signer1]</div>\n" +
+            "    <div>Signed On: [date|req|signer1]</div>\n" +
+            "</div>\n" +
+            "\n" +
+            "<div class=\"signer\">\n" +
+            "    <div>Signer 2: [text|req|signer2|Label|UniqueId|letters_only|name]</div>\n" +
+            "    <div>Email: [text|noreq|signer2|Label|UniqueId|email_address|email]</div>\n" +
+            "    <div class=\"sign\">Sign: [sig|req|signer2]</div>\n" +
+            "    <div>Signed On: [date|req|signer2]</div>\n" +
             "</div>\n" +
             "</p>\n" +
             "\n" +

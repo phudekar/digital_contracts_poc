@@ -1,7 +1,6 @@
 <html>
 <head>
     <title>Digital Contract</title>
-    <#include "style.css">
 </head>
 <style>
     @page { size: letter landscape; margin: 1cm;}
@@ -10,7 +9,7 @@
     .signer {
         margin-bottom: 40px;
     }
-     .sign {
+       .sign {
         height:40px;
         margin-top: 24px;
         margin-bottom: 12px;
@@ -31,6 +30,7 @@
     <div class="sign">Sign: [sig|req|signer1]</div>
     <div>Signed On: [date|req|signer1]</div>
 </div>
+
 <div class="signer">
     <div>Signer 2: [text|req|signer2|Label|UniqueId|letters_only|name]</div>
     <div>Email: [text|noreq|signer2|Label|UniqueId|email_address|email]</div>
@@ -38,33 +38,6 @@
     <div>Signed On: [date|req|signer2]</div>
 </div>
 </p>
-<div>
-    <table>
-        <caption>
-            MEDIA AUTHORIZATION FORM
-        </caption>
-        <thead>
-        <tr>
-            <th scope="col">Market</th>
-            <th scope="col">Format</th>
-            <th scope="col">Digital Or Static</th>
-            <th scope="col">Qty</th>
-            <th scope="col">Total Media</th>
-        </tr>
-        </thead>
-        <tbody>
-        <#list lineItems as lineItem>
-            <tr>
-                <th scope="row">${lineItem.getMarket()}</th>
-                <td>${lineItem.getFormat()}</td>
-                <td>${lineItem.getDigitalOrStatic()}</td>
-                <td>${lineItem.getQty()}</td>
-                <td>${lineItem.getPrice()}</td>
-            </tr>
-        </#list>
-        </tbody>
-    </table>
-</div>
 
 </body>
 </html>

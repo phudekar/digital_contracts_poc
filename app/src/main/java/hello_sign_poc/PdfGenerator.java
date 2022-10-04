@@ -19,9 +19,10 @@ public class PdfGenerator {
 
     private final ITextRenderer renderer;
     private final int DOTS_PER_PIXEL = 3;
+    private final float DOTS_PER_POINT = 4.1666f;
 
     public PdfGenerator() {
-        renderer = new ITextRenderer(4.1666f, DOTS_PER_PIXEL);
+        renderer = new ITextRenderer(DOTS_PER_POINT, DOTS_PER_PIXEL);
         SharedContext sharedContext = renderer.getSharedContext();
         sharedContext.setPrint(true);
         sharedContext.setInteractive(false);
