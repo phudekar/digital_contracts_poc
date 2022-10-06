@@ -85,7 +85,7 @@
         </div>
     </div>
     <div class="terms">
-        <span>Terms and Conditions: Read carefully!</span>
+        Terms and Conditions: Read carefully!r
     </div>
 </div>
 </body>

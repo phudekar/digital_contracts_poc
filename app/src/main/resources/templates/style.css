@@ -57,9 +57,10 @@ body { font-family: sans-serif; }
     width: 100%;
 }
 table {
+    -fs-table-paginate: paginate;
     text-align: left;
     font-size: 12px;
-    page-break-inside:auto;
+    page-break-inside: auto;
     border-collapse: collapse;
     table-layout: fixed;
     width: 100%;
