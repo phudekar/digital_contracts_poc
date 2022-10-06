@@ -6,59 +6,99 @@
 <style>
 </style>
 <body>
-<h1>This is a test Contract</h1>
-<div class="terms">Terms and Conditions:
-    Read carefully!
-</div>
-
-<div class="signer-position">
-    <p>
-    <div class="signer">
-        <div>Signer 1: [text|req|signer1|Label|UniqueId|letters_only|name]</div>
-        <div>Email: [text|noreq|signer1|Label|UniqueId|email_address|email]</div>
-        <div class="sign">Sign: [sig|req|signer1]</div>
-        <div>Signed On: [date|req|signer1]</div>
+    <div class="content">
+        <div class="header">
+            <div class="logo">
+                <img src="images/mcd.png" height="50px" width="75px"></img>
+            </div>
+            <div class="header-details">
+                <div class="header-id">SomeId:
+                    <span style="font-weight: normal;">12345</span>
+                </div>
+                <div class="header-date">Date:
+                    <span style="font-weight: normal;">12/12/2022</span>
+                </div>
+            </div>
+        </div>
+        <div class="maf">
+            <div class="maf-header">MEDIA AUTHORIZATION FORM</div>
+            <table>
+                <tr>
+                    <td class="maf-cell-header">Agency:</td>
+                    <td >SomeAgency</td>
+                    <td class="maf-cell-header">Advertiser:</td>
+                    <td >TEST</td>
+                    <td class=" maf-cell-header">Client Reference#:</td>
+                    <td >123</td>
+                </tr>
+                <tr>
+                    <td class="maf-cell-header">Agency Contact:</td>
+                    <td >Name and Email</td>
+                    <td class="maf-cell-header">Brand</td>
+                    <td >BrandName</td>
+                    <td class="maf-cell-header">Timing</td>
+                    <td >1/1/2022 12/1/2022</td>
+                </tr>
+                <tr>
+                    <td class="maf-cell-header">Contact</td>
+                    <td >SomeContact</td>
+                    <td ></td>
+                    <td ></td>
+                    <td ></td>
+                    <td ></td>
+                </tr>
+            </table>
+            <div style="height: 30px"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Market</th>
+                        <th>Format</th>
+                        <th>Digital Or Static</th>
+                        <th>Qty</th>
+                        <th>Total Media</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td >LA</td>
+                    <td >Billboard</td>
+                    <td >Digital</td>
+                    <td >1</td>
+                    <td >12.21</td>
+                </tr>
+                <tr>
+                    <td>LA</td>
+                    <td>Billboard</td>
+                    <td>Digital</td>
+                    <td>1</td>
+                    <td>12.21</td>
+                </tr>
+                <tr>
+                    <td >LA</td>
+                    <td >Billboard</td>
+                    <td >Digital</td>
+                    <td >1</td>
+                    <td >12.21</td>
+                </tr>
+            </table>
+        </div>
+        <div class="signer-position">
+            <div class="signer">
+                <div>Signer 1: [text|req|signer1|Label|UniqueId|letters_only|name]</div>
+                <div>Email: [text|noreq|signer1|Label|UniqueId|email_address|email]</div>
+                <div class="sign">Sign: [sig|req|signer1]</div>
+                <div>Signed On: [date|req|signer1]</div>
+            </div>
+            <div class="signer">
+                <div>Signer 2: [text|req|signer2|Label|UniqueId|letters_only|name]</div>
+                <div>Email: [text|noreq|signer2|Label|UniqueId|email_address|email]</div>
+                <div class="sign">Sign: [sig|req|signer2]</div>
+                <div>Signed On: [date|req|signer2]</div>
+            </div>
+        </div>
+        <div class="terms">
+            <span>Terms and Conditions: Read carefully!</span>
+        </div>
     </div>
-    <div class="signer">
-        <div>Signer 2: [text|req|signer2|Label|UniqueId|letters_only|name]</div>
-        <div>Email: [text|noreq|signer2|Label|UniqueId|email_address|email]</div>
-        <div class="sign">Sign: [sig|req|signer2]</div>
-        <div>Signed On: [date|req|signer2]</div>
-    </div>
-    </p>
-</div>
-<div>
-    <table>
-        <caption>
-            MEDIA AUTHORIZATION FORM
-        </caption>
-        <thead>
-        <tr>
-            <th scope="col">Market</th>
-            <th scope="col">Format</th>
-            <th scope="col">Digital Or Static</th>
-            <th scope="col">Qty</th>
-            <th scope="col">Total Media</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            </style>
-            <td>Billboard</td>
-            <td>Digital</td>
-            <td>1</td>
-            <td>12.21</td>
-        </tr>
-        <tr>
-            <th scope="row">LA</th>
-            <td>Billboard</td>
-            <td>Digital</td>
-            <td>1</td>
-            <td>12.21</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-
 </body>
 </html>

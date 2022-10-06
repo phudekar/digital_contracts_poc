@@ -9,6 +9,7 @@ import hello_sign_poc.hellosign.ContractGenerator;
 public class App {
     //Need to add valid api key
     private static final String API_KEY = "";
+    private static final String HTML_TEMPLATE = "sampletemplate"; //can be sampletemplate or test
 
     public String getGreeting() {
         return "Hello World!";
@@ -21,7 +22,7 @@ public class App {
         final HtmlGenerator generator = new HtmlGenerator();
 
         //generate html from template
-        final String generatedHtml = generator.generateHtml("test", new DataModel());
+        final String generatedHtml = generator.generateHtml(HTML_TEMPLATE, new DataModel());
         System.out.println(generatedHtml);
 
         //generate pdf from html
@@ -32,15 +33,12 @@ public class App {
         final ContractData contractData = new ContractData(
                 "Test Contract",
                 new Contact("signer1", "somevalidemail.gmail.com"),
-                new Contact("sighner2", "somevalidemail.gmail.com")
+                new Contact("signer2", "somevalidemail.gmail.com")
         );
         final SignatureRequest response = contractGenerator.sendNewSignatureRequest(
                 contractData,
-                data,
-                pdfGenerator.getBoxForId("sign-1"),
-                pdfGenerator.getBoxForId("sign-2")
+                data
         );
-
 
     }
 }

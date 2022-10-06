@@ -1,0 +1,92 @@
+<html>
+<head>
+    <title>Digital Contract</title>
+    <#include "style.css">
+</head>
+<style>
+</style>
+<body>
+<div class="content">
+    <div class="header">
+        <div class="logo">
+            <img src="images/mcd.png" height="50px" width="75px"></img>
+        </div>
+        <div class="header-details">
+            <div class="header-id">SomeId:
+                <span style="font-weight: normal;">12345</span>
+            </div>
+            <div class="header-date">Date:
+                <span style="font-weight: normal;">12/12/2022</span>
+            </div>
+        </div>
+    </div>
+    <div class="maf">
+        <div class="maf-header">MEDIA AUTHORIZATION FORM</div>
+        <table>
+            <tr>
+                <td class="maf-cell-header">Agency:</td>
+                <td >SomeAgency</td>
+                <td class="maf-cell-header">Advertiser:</td>
+                <td >TEST</td>
+                <td class=" maf-cell-header">Client Reference#:</td>
+                <td >123</td>
+            </tr>
+            <tr>
+                <td class="maf-cell-header">Agency Contact:</td>
+                <td >Name and Email</td>
+                <td class="maf-cell-header">Brand</td>
+                <td >BrandName</td>
+                <td class="maf-cell-header">Timing</td>
+                <td >1/1/2022 12/1/2022</td>
+            </tr>
+            <tr>
+                <td class="maf-cell-header">Contact</td>
+                <td >SomeContact</td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                <td ></td>
+            </tr>
+        </table>
+        <div style="height: 30px"></div>
+        <table>
+            <thead>
+            <tr>
+                <th>Market</th>
+                <th>Format</th>
+                <th>Digital Or Static</th>
+                <th>Qty</th>
+                <th>Total Media</th>
+            </tr>
+            </thead>
+            <#list lineItems as lineItem>
+                <tr>
+                    <td>${lineItem.getMarket()}</td>
+                    <td>${lineItem.getFormat()}</td>
+                    <td>${lineItem.getDigitalOrStatic()}</td>
+                    <td>${lineItem.getQty()}</td>
+                    <td>${lineItem.getPrice()}</td>
+                </tr>
+            </#list>
+        </table>
+    </div>
+    <div class="signer-position">
+        <div class="signer">
+            <div>Signer 1: [text|req|signer1|Label|UniqueId|letters_only|name]</div>
+            <div>Email: [text|noreq|signer1|Label|UniqueId|email_address|email]</div>
+            <div class="sign">Sign: [sig|req|signer1]</div>
+            <div>Signed On: [date|req|signer1]</div>
+        </div>
+        <div class="signer">
+            <div>Signer 2: [text|req|signer2|Label|UniqueId|letters_only|name]</div>
+            <div>Email: [text|noreq|signer2|Label|UniqueId|email_address|email]</div>
+            <div class="sign">Sign: [sig|req|signer2]</div>
+            <div>Signed On: [date|req|signer2]</div>
+        </div>
+    </div>
+    <div class="terms">
+        <span>Terms and Conditions: Read carefully!</span>
+    </div>
+</div>
+</body>
+</html>

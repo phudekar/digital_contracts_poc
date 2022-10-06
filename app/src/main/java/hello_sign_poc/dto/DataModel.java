@@ -12,6 +12,32 @@ public class DataModel {
         lineItems.add(new LineItem("New York", "Roadside", "Digital", 1, 62.2f));
         lineItems.add(new LineItem("Chicago", "Airport", "Static", 1, 22.2f));
         lineItems.add(new LineItem("Philadelphia", "Banner", "Static", 1, 72.2f));
+        lineItems.add(new LineItem("Chicago", "Airport", "Static", 1, 22.2f));
+        lineItems.add(new LineItem("New York", "Roadside", "Digital", 1, 62.2f));
+        lineItems.add(new LineItem("Philadelphia", "Banner", "Static", 1, 72.2f));
+        lineItems.add(new LineItem("Philadelphia", "Banner", "Static", 1, 72.2f));
+        lineItems.add(new LineItem("Chicago", "Airport", "Static", 1, 22.2f));
+        lineItems.add(new LineItem("New York", "Roadside", "Digital", 1, 62.2f));
+        lineItems.add(new LineItem("Los Angeles", "Billboard", "Digital", 1, 12.2f));
+        lineItems.add(new LineItem("New York", "Roadside", "Digital", 1, 62.2f));
+        lineItems.add(new LineItem("Chicago", "Airport", "Static", 1, 22.2f));
+        lineItems.add(new LineItem("Philadelphia", "Banner", "Static", 1, 72.2f));
+        lineItems.add(new LineItem("Chicago", "Airport", "Static", 1, 22.2f));
+        lineItems.add(new LineItem("New York", "Roadside", "Digital", 1, 62.2f));
+        lineItems.add(new LineItem("Philadelphia", "Banner", "Static", 1, 72.2f));
+        lineItems.add(new LineItem("Philadelphia", "Banner", "Static", 1, 72.2f));
+        lineItems.add(new LineItem("Chicago", "Airport", "Static", 1, 22.2f));
+        lineItems.add(new LineItem("New York", "Roadside", "Digital", 1, 62.2f));
+        lineItems.add(new LineItem("Los Angeles", "Billboard", "Digital", 1, 12.2f));
+        lineItems.add(new LineItem("New York", "Roadside", "Digital", 1, 62.2f));
+        lineItems.add(new LineItem("Chicago", "Airport", "Static", 1, 22.2f));
+        lineItems.add(new LineItem("Philadelphia", "Banner", "Static", 1, 72.2f));
+        lineItems.add(new LineItem("Chicago", "Airport", "Static", 1, 22.2f));
+        lineItems.add(new LineItem("New York", "Roadside", "Digital", 1, 62.2f));
+        lineItems.add(new LineItem("Philadelphia", "Banner", "Static", 1, 72.2f));
+        lineItems.add(new LineItem("Philadelphia", "Banner", "Static", 1, 72.2f));
+        lineItems.add(new LineItem("Chicago", "Airport", "Static", 1, 22.2f));
+        lineItems.add(new LineItem("New York", "Roadside", "Digital", 1, 62.2f));
     }
 
     public List<LineItem> getLineItems() {
