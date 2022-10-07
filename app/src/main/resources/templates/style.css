@@ -4,10 +4,10 @@ body { font-family: sans-serif; }
 
 .content {
     padding: 50px;
-    font-size: 12px;
 /*
-    font-size: 8px;
+    font-size: 12px;
 */
+    font-size: 8px;
 }
 .header {
 }
@@ -30,7 +30,7 @@ body { font-family: sans-serif; }
     padding-bottom: 50px;
 }
 .maf-header {
-    font-size: 24px;
+    font-size: 12px;
     font-weight: bold;
     text-align: center;
     padding-bottom: 20px;
@@ -38,13 +38,11 @@ body { font-family: sans-serif; }
 .maf-cell-header {
     font-weight: bold;
 }
-
 .signer-position {
     width: 100%;
     font-size: 12px;
 }
 .signer {
-    float: left;
     text-align: left;
     width: 50%;
     margin-bottom: 40px;
@@ -54,37 +52,45 @@ body { font-family: sans-serif; }
     margin-bottom: 18px;
 }
 .terms {
+    page-break-before:always;
     width: 100%;
+    font-size: 12px;
+    text-align: center;
 }
-table {
+
+.maf-table {
     -fs-table-paginate: paginate;
     text-align: left;
+/*
     font-size: 12px;
+*/
+    font-size: 8px;
     page-break-inside: auto;
     border-collapse: collapse;
     table-layout: fixed;
     width: 100%;
 }
-tr {
+
+.maf-table tr {
     page-break-inside:avoid;
     page-break-after:auto;
 }
-td {
-    padding: 15px;
-    border-top: 1.3px solid #C8C8C8;
+.maf-table td {
+    padding: 8px;
+    border-top: 0.8px solid #C8C8C8;
 }
-thead {
+.maf-table thead {
     display:table-header-group;
 }
-thead th {
+.maf-table thead th {
     padding: 15px;
-    border-top: 1.3px solid #C8C8C8;
+    border-top: 0.8px solid #C8C8C8;
 }
 tfoot {
     display:table-footer-group;
 }
-tr:nth-child(odd) {
-    background-color: #E8E8E8;
+.maf-table tr:nth-child(odd) {
+    background-color: #F8F8F8;
 }
 
 </style>

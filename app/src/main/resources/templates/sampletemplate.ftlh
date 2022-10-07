@@ -22,7 +22,7 @@
     </div>
     <div class="maf">
         <div class="maf-header">MEDIA AUTHORIZATION FORM</div>
-        <table>
+        <table class="maf-table">
             <tr>
                 <td class="maf-cell-header">Agency:</td>
                 <td >SomeAgency</td>
@@ -49,7 +49,7 @@
             </tr>
         </table>
         <div style="height: 30px"></div>
-        <table>
+        <table class="maf-table">
             <thead>
             <tr>
                 <th>Market</th>
@@ -70,22 +70,98 @@
             </#list>
         </table>
     </div>
-    <div class="signer-position">
-        <div class="signer">
-            <div>Signer 1: [text|req|signer1|Label|UniqueId|letters_only|name]</div>
-            <div>Email: [text|noreq|signer1|Label|UniqueId|email_address|email]</div>
-            <div class="sign">Sign: [sig|req|signer1]</div>
-            <div>Signed On: [date|req|signer1]</div>
-        </div>
-        <div class="signer">
-            <div>Signer 2: [text|req|signer2|Label|UniqueId|letters_only|name]</div>
-            <div>Email: [text|noreq|signer2|Label|UniqueId|email_address|email]</div>
-            <div class="sign">Sign: [sig|req|signer2]</div>
-            <div>Signed On: [date|req|signer2]</div>
-        </div>
-    </div>
+    <table class="signer-position">
+        <tr class="signer">
+            <td>
+                <div>Signer 1: [text|req|signer1|Label|UniqueId|letters_only|name]</div>
+                <div>Email: [text|noreq|signer1|Label|UniqueId|email_address|email]</div>
+                <div class="sign">Sign: [sig|req|signer1]</div>
+                <div>Signed On: [date|req|signer1]</div>
+            </td>
+            <td>
+                <div>Signer 2: [text|req|signer2|Label|UniqueId|letters_only|name]</div>
+                <div>Email: [text|noreq|signer2|Label|UniqueId|email_address|email]</div>
+                <div class="sign">Sign: [sig|req|signer2]</div>
+                <div>Signed On: [date|req|signer2]</div>
+            </td>
+        </tr>
+    </table>
     <div class="terms">
-        Terms and Conditions: Read carefully!r
+        <h1> Terms and Conditions: Read carefully!</h1>
+        <p>
+            Apache License
+            Version 2.0, January 2004
+            http://www.apache.org/licenses/
+        </p>
+        <p>
+            TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION<br>
+            <br>
+            1. Definitions.<br>
+            <br>
+            "License" shall mean the terms and conditions for use, reproduction,<br>
+            and distribution as defined by Sections 1 through 9 of this document.<br>
+            <br>
+            "Licensor" shall mean the copyright owner or entity authorized by<br>
+            the copyright owner that is granting the License.<br>
+            <br>
+            "Legal Entity" shall mean the union of the acting entity and all<br>
+            other entities that control, are controlled by, or are under common<br>
+            control with that entity. For the purposes of this definition,<br>
+            "control" means (i) the power, direct or indirect, to cause the<br>
+            direction or management of such entity, whether by contract or<br>
+            otherwise, or (ii) ownership of fifty percent (50%) or more of the<br>
+            outstanding shares, or (iii) beneficial ownership of such entity.<br>
+            <br>
+            "You" (or "Your") shall mean an individual or Legal Entity<br>
+            exercising permissions granted by this License.<br>
+            <br>
+            "Source" form shall mean the preferred form for making modifications,<br>
+            including but not limited to software source code, documentation<br>
+            source, and configuration files.<br>
+            <br>
+            "Object" form shall mean any form resulting from mechanical<br>
+            transformation or translation of a Source form, including but<br>
+            not limited to compiled object code, generated documentation,<br>
+            and conversions to other media types.<br>
+            <br>
+            "Work" shall mean the work of authorship, whether in Source or<br>
+            Object form, made available under the License, as indicated by a<br>
+            copyright notice that is included in or attached to the work<br>
+            (an example is provided in the Appendix below).<br>
+            <br>
+            "Derivative Works" shall mean any work, whether in Source or Object<br>
+            form, that is based on (or derived from) the Work and for which the<br>
+            editorial revisions, annotations, elaborations, or other modifications<br>
+            represent, as a whole, an original work of authorship. For the purposes<br>
+            of this License, Derivative Works shall not include works that remain<br>
+            separable from, or merely link (or bind by name) to the interfaces of,<br>
+            the Work and Derivative Works thereof.<br>
+            <br>
+            "Contribution" shall mean any work of authorship, including<br>
+            the original version of the Work and any modifications or additions<br>
+            to that Work or Derivative Works thereof, that is intentionally<br>
+            submitted to Licensor for inclusion in the Work by the copyright owner<br>
+            or by an individual or Legal Entity authorized to submit on behalf of<br>
+            the copyright owner. For the purposes of this definition, "submitted"<br>
+            means any form of electronic, verbal, or written communication sent<br>
+            to the Licensor or its representatives, including but not limited to<br>
+            communication on electronic mailing lists, source code control systems,<br>
+            and issue tracking systems that are managed by, or on behalf of, the<br>
+            Licensor for the purpose of discussing and improving the Work, but<br>
+            excluding communication that is conspicuously marked or otherwise<br>
+            designated in writing by the copyright owner as "Not a Contribution."<br>
+            <br>
+            "Contributor" shall mean Licensor and any individual or Legal Entity<br>
+            on behalf of whom a Contribution has been received by Licensor and<br>
+            subsequently incorporated within the Work.<br>
+            <br>
+            2. Grant of Copyright License. Subject to the terms and conditions of<br>
+            this License, each Contributor hereby grants to You a perpetual,<br>
+            worldwide, non-exclusive, no-charge, royalty-free, irrevocable<br>
+            copyright license to reproduce, prepare Derivative Works of,<br>
+            publicly display, publicly perform, sublicense, and distribute the<br>
+            Work and such Derivative Works in Source or Object form.<br>
+        </p>
     </div>
 </div>
 </body>
