@@ -50,8 +50,8 @@ public class ContractGenerator {
         request.setTestMode(true);
         request.setUseTextTags(true);
         request.setHideTextTags(true);
-        request.addSigner(contractData.getFirstContact().getEmail(), contractData.getFirstContact().getName());
-        request.addSigner(contractData.getSecondContact().getEmail(), contractData.getSecondContact().getName());
+        request.addSigner(contractData.getFirstContact().getEmail(), contractData.getFirstContact().getName(), 1);
+        request.addSigner(contractData.getSecondContact().getEmail(), contractData.getSecondContact().getName(), 2);
         return request;
     }
 
